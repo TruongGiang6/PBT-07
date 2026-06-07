@@ -57,3 +57,16 @@
 - `if (0) console.log("F");` -> Không in (Falsy)
 - `if (-1) console.log("G");` -> In "G" (Số khác 0 là Truthy)
 - `if (" ") console.log("H");` -> In "H" (Chuỗi có khoảng trắng không phải rỗng)
+
+## CÂU A5:
+
+1. `greeting = \`Xin chào ${name}! Bạn ${age} tuổi.\``
+
+2. `url = \`https://api.example.com/users/${userId}/orders?page=${page}\``
+
+3. `html = \`
+<div class="card">
+    <h2>${title}</h2>
+    <p>${description}</p>
+    <span>Giá: ${price}đ</span>
+</div>\``
