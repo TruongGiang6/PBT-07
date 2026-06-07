@@ -70,3 +70,25 @@
     <p>${description}</p>
     <span>Giá: ${price}đ</span>
 </div>\``
+
+## PHẦN C:
+
+## Câu C1:
+
+1. Gán thay vì so sánh
+if (giaSauGiam = 0) dùng = là phép gán, khiến giaSauGiam luôn bị gán thành 0. Sửa thành if (giaSauGiam === 0)
+
+2. Truyền string thay vì number
+tinhGiaGiamGia("100000", 20) truyền vào chuỗi "100000", JS tự ép kiểu nên đôi khi vẫn ra kết quả nhưng không đảm bảo. Sửa thành tinhGiaGiamGia(100000, 20)
+
+3. Không validate kiểu đầu vào
+Hàm không kiểm tra giaBan có phải number không, nếu truyền string hoặc null sẽ cho kết quả sai. Thêm if (typeof giaBan !== 'number' || typeof phanTramGiam !== 'number') return "Tham số phải là số"
+
+4. Thiếu kiểm tra NaN
+NaN < 0 và NaN > 100 đều trả về false, nên NaN lọt qua điều kiện mà không bị chặn. Thêm isNaN(phanTramGiam) vào điều kiện kiểm tra
+
+5. Dùng var thay vì const trong hàm
+var giamGia có function scope, dễ bị ghi đè hoặc gây nhầm lẫn. Đổi thành const giamGia vì giá trị không thay đổi sau khi gán
+
+6. (Lỗi ẩn) var i trong vòng lặp + setTimeout
+var chỉ có function scope nên chỉ có 1 biến i dùng chung. Khi setTimeout chạy sau 1 giây, vòng lặp đã xong, i = 5 → tất cả đều in "Item 5". Đổi thành let i để mỗi lần lặp có biến i riêng, kết quả đúng là 0, 1, 2, 3, 4.
