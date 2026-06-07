@@ -26,4 +26,20 @@
 - `[] + {}` -> `"[object Object]"` (Mảng trống là `""`, Object chuyển thành string)
 - `{} + []` -> `0` (Trong console, `{}` có thể bị coi là block trống, còn lại `+ []` -> `0`. Tuy nhiên trong code expression thường là `"[object Object]"`)
 
-** Giải thích: `"5" + 3` cho ra `"53"` vì toán tử `+` được ưu tiên làm toán tử nối chuỗi nếu có một toán hạng là chuỗi. Ngược lại, toán tử `-` không dùng cho chuỗi nên JS ép kiểu chuỗi "5" về số để tính toán
+*** Giải thích ***: `"5" + 3` cho ra `"53"` vì toán tử `+` được ưu tiên làm toán tử nối chuỗi nếu có một toán hạng là chuỗi. Ngược lại, toán tử `-` không dùng cho chuỗi nên JS ép kiểu chuỗi "5" về số để tính toán
+
+## Câu A3:
+
+*** Dự đoán ***: 
+- `5 == "5"` -> `true` (Ép kiểu)
+- `5 === "5"` -> `false` (Khác kiểu dữ liệu)
+- `null == undefined` -> `true`
+- `null === undefined` -> `false`
+- `NaN == NaN` -> `false` (NaN không bao giờ bằng chính nó)
+- `0 == false` -> `true`
+- `0 === false` -> `false`
+- `"" == false` -> `true`
+
+**Quy tắc**: Nên dùng `===` (Strict Equality)
+
+**Tại sao**: Để tránh các lỗi logic tiềm ẩn do cơ chế tự động ép kiểu (type coercion) của JS. `===` kiểm tra cả giá trị và kiểu dữ liệu
