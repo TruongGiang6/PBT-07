@@ -43,3 +43,17 @@
 **Quy tắc**: Nên dùng `===` (Strict Equality)
 
 **Tại sao**: Để tránh các lỗi logic tiềm ẩn do cơ chế tự động ép kiểu (type coercion) của JS. `===` kiểm tra cả giá trị và kiểu dữ liệu
+
+## CÂU A4:
+
+- Các giá trị Falsy trong JS: `false`, `0`, `-0`, `0n` (BigInt zero), `""` (string rỗng), `null`, `undefined`, và `NaN`.
+
+**Dự đoán**:
+- `if ("0") console.log("A");` -> In "A" (Chuỗi không rỗng là Truthy)
+- `if ("") console.log("B"); ` -> Không in (Falsy)
+- `if ([]) console.log("C");` -> In "C" (Mảng là object, luôn Truthy)
+- `if ({}) console.log("D");` -> In "D" (Object luôn Truthy)
+- `if (null) console.log("E");` -> Không in (Falsy)
+- `if (0) console.log("F");` -> Không in (Falsy)
+- `if (-1) console.log("G");` -> In "G" (Số khác 0 là Truthy)
+- `if (" ") console.log("H");` -> In "H" (Chuỗi có khoảng trắng không phải rỗng)
