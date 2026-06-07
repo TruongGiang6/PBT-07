@@ -11,3 +11,19 @@
    - Trong block: 2
    - Ngoài block: 1
    (`let` có phạm vi block scope)
+
+## CÂU A2:
+
+*** Dự đoán: ***
+- `typeof null` -> `"object"` (Lỗi lịch sử của JS)
+- `typeof undefined` -> `"undefined"`
+- `typeof NaN` -> `"number"`
+- `"5" + 3` -> `"53"` (Số 3 bị ép kiểu thành chuỗi để nối)
+- `"5" - 3` -> `2` (Chuỗi "5" bị ép kiểu thành số để thực hiện phép trừ)
+- `"5" * "3"` -> `15` (Cả hai bị ép kiểu thành số)
+- `true + true` -> `2` (`true` tương đương với 1)
+- `[] + []` -> `""` (Mảng trống chuyển thành chuỗi rỗng)
+- `[] + {}` -> `"[object Object]"` (Mảng trống là `""`, Object chuyển thành string)
+- `{} + []` -> `0` (Trong console, `{}` có thể bị coi là block trống, còn lại `+ []` -> `0`. Tuy nhiên trong code expression thường là `"[object Object]"`)
+
+** Giải thích: `"5" + 3` cho ra `"53"` vì toán tử `+` được ưu tiên làm toán tử nối chuỗi nếu có một toán hạng là chuỗi. Ngược lại, toán tử `-` không dùng cho chuỗi nên JS ép kiểu chuỗi "5" về số để tính toán
